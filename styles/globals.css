@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.fade-slide {
+  @apply opacity-0 transition-opacity duration-1000 ease-in-out;
+}
+
+.carousel .slide.selected .fade-slide {
+  @apply opacity-100;
+}

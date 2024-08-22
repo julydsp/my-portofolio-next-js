@@ -5,7 +5,14 @@ const config = {
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        mons: ["var(--font-montserrat)", "sans-serif"],
+      },
+      colors: {
+        dark: "#0A192F",
+      },
+    },
   },
   plugins: [],
 };
