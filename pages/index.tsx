@@ -184,7 +184,7 @@ const Index: NextPage = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 5, duration: 0.8 }}
           >
-            <div className="h-screen relative hover:translate-y-10 duration-700">
+            <div className="h-screen relative">
               <ul className="absolute flex flex-col gap-5 left-[26px] bottom-60 z-40">
                 <Link
                   href="https://x.com/_julydsp"
