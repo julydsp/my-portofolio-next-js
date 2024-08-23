@@ -12,6 +12,7 @@ import profile1 from "@/public/profile-1.png";
 import profile2 from "@/public/profile-2.png";
 import profile3 from "@/public/profile-3.png";
 import { delay, motion } from "framer-motion";
+import { useEffect, useState } from "react";
 
 const textVariants = {
   hidden: { opacity: 0 },
@@ -59,7 +60,15 @@ const TypingAnimation = ({ text, style }: { text: string; style: string }) => (
 );
 
 const Index: NextPage = () => {
+  const [autoPlay, setAutoPlay] = useState(false);
 
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setAutoPlay(true);
+    }, 5000);
+
+    return () => clearTimeout(timer);
+  }, []);
   return (
     <>
       <Head>
@@ -70,103 +79,103 @@ const Index: NextPage = () => {
       <RootLayout>
         <div className="relative w-full h-screen flex flex-row-reverse">
           <div className="w-full flex flex-col-reverse relative">
-            <div className="px-5 md:pl-32 w-full lg:w-3/4 h-screen flex flex-col items-start pt-10 md:pt-20 ">
-              <div className="hover:translate-x-5 duration-1000">
-                <TypingAnimation text={sentence.text} style={sentence.style} />
-              </div>
-              <div className="hover:-translate-x-5 duration-1000">
-                <TypingAnimation text={name.text} style={name.style} />
-              </div>
-              <div className="hover:translate-x-5 duration-1000">
-                <TypingAnimation text={role.text} style={role.style} />
-              </div>
-              <div className="w-full md:w-1/2 hover:-translate-x-5 duration-1000">
-                <TypingAnimation
-                  text={description.text}
-                  style={description.style}
-                />
-              </div>
-              <motion.div
-                initial={{ opacity: 0, scaleY: 0 }}
-                animate={{ opacity: 1, scaleY: 1 }}
-                transition={{ delay: 3, duration: 0.8 }}
-                className="w-full"
-              >
-                <button className="hover:scale-110 duration-500 border-solid border-2 border-[#8892B0] rounded-md px-3 py-2 font-mons font-medium text-sm text-[#8892B0] my-4">
-                  Resume
-                </button>
-              </motion.div>
-
-              <div className="flex flex-col md:flex-row w-full justify-start items-start md:items-center gap-2 md:gap-5 md:absolute md:bottom-[190px] hover:translate-x-10 duration-700 -right-32">
+            <div className="relative px-5 md:pl-32 w-full md:w-3/4 lg:w-full h-screen pt-10 md:pt-20 ">
+              <div className="absolute flex flex-col items-start z-30 w-full h-screen pr-10">
+                <div className="hover:translate-x-5 duration-1000">
+                  <TypingAnimation
+                    text={sentence.text}
+                    style={sentence.style}
+                  />
+                </div>
+                <div className="hover:-translate-x-5 duration-1000">
+                  <TypingAnimation text={name.text} style={name.style} />
+                </div>
+                <div className="hover:translate-x-5 duration-1000">
+                  <TypingAnimation text={role.text} style={role.style} />
+                </div>
+                <div className="w-full md:w-1/2 hover:-translate-x-5 duration-1000">
+                  <TypingAnimation
+                    text={description.text}
+                    style={description.style}
+                  />
+                </div>
                 <motion.div
-                  initial={{ opacity: 0, x: -100 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 4, duration: 0.8 }}
+                  initial={{ opacity: 0, scaleY: 0 }}
+                  animate={{ opacity: 1, scaleY: 1 }}
+                  transition={{ delay: 3, duration: 0.8 }}
                   className="w-full"
                 >
-                  <Link
-                    href="/blabla"
-                    className="font-mons text-xs md:text-md font-medium text-[#8892B0]"
+                  <button className="hover:scale-110 duration-500 border-solid border-2 border-[#8892B0] rounded-md px-3 py-2 font-mons font-medium text-sm text-[#8892B0] my-4">
+                    Resume
+                  </button>
+                </motion.div>
+
+                <div className="flex flex-col md:flex-row w-full justify-start items-start  gap-2 md:gap-5 lg:absolute lg:bottom-[260px] hover:translate-x-10 duration-700 ">
+                  <motion.div
+                    initial={{ opacity: 0, x: -100 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 4, duration: 0.8 }}
+                    className="w-full"
                   >
-                    julydsp@gmail.com
-                  </Link>
-                  <hr className="bg-[#8892B0] w-full border-none h-[2px]" />
+                    <Link
+                      href="/blabla"
+                      className="font-mons text-xs md:text-md font-medium text-[#8892B0]"
+                    >
+                      julydsp@gmail.com
+                    </Link>
+                    <hr className="bg-[#8892B0] w-full border-none h-[2px]" />
+                  </motion.div>
+                </div>
+              </div>
+
+              <div className="absolute bottom-0 right-0 flex justify-end items-center md:w-1/2 lg:z-30">
+                <motion.div
+                  initial={{ opacity: 0, y: 300 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 5.5, duration: 0.8 }}
+                >
+                  <Carousel
+                    showArrows={false}
+                    showThumbs={false}
+                    showStatus={false}
+                    infiniteLoop
+                    autoPlay={autoPlay}
+                    axis="horizontal"
+                    interval={3000}
+                    transitionTime={1000}
+                    stopOnHover={false}
+                    className="relative w-[600px] h-[750px] md:w-[800px] md:h-[1000px] bg-center object-cover bottom-0 -right-44  md:-right-20 "
+                  >
+                    <div className="fade-slide">
+                      <Image
+                        src={profile1}
+                        alt="Profile Image 1"
+                        width={800}
+                        height={1000}
+                        objectFit="cover"
+                      />
+                    </div>
+                    <div className="fade-slide">
+                      <Image
+                        src={profile2}
+                        alt="Profile Image 2"
+                        width={800}
+                        height={1000}
+                        objectFit="cover"
+                      />
+                    </div>
+                    <div className="fade-slide">
+                      <Image
+                        src={profile3}
+                        alt="Profile Image 3"
+                        width={800}
+                        height={1000}
+                        objectFit="cover"
+                      />
+                    </div>
+                  </Carousel>
                 </motion.div>
               </div>
-            </div>
-
-            <div className="absolute right-0 flex justify-end items-center md:w-1/2">
-              <motion.div
-                initial={{ opacity: 0, y: 150 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 5.5, duration: 0.8 }}
-              >
-                {/* <Image
-                  src={profile}
-                  alt="My Profile Image"
-                  className="relative w-[600px] h-[750px] md:w-[800px] md:h-[1000px] bg-center object-cover bottom-0 -right-10  md:-right-20"
-                /> */}
-                <Carousel
-                  showArrows={false}
-                  showThumbs={false}
-                  showStatus={false}
-                  infiniteLoop
-                  autoPlay
-                  axis="horizontal"
-                  interval={3500}
-                  transitionTime={1500}
-                  stopOnHover={false}
-                  className="relative w-[600px] h-[750px] md:w-[800px] md:h-[1000px] bg-center object-cover bottom-0 -right-44  md:-right-20 "
-                >
-                  <div className="fade-slide">
-                    <Image
-                      src={profile1}
-                      alt="Profile Image 1"
-                      width={800}
-                      height={1000}
-                      objectFit="cover"
-                    />
-                  </div>
-                  <div className="fade-slide">
-                    <Image
-                      src={profile2}
-                      alt="Profile Image 2"
-                      width={800}
-                      height={1000}
-                      objectFit="cover"
-                    />
-                  </div>
-                  <div className="fade-slide">
-                    <Image
-                      src={profile3}
-                      alt="Profile Image 3"
-                      width={800}
-                      height={1000}
-                      objectFit="cover"
-                    />
-                  </div>
-                </Carousel>
-              </motion.div>
             </div>
           </div>
 
@@ -176,7 +185,7 @@ const Index: NextPage = () => {
             transition={{ delay: 5, duration: 0.8 }}
           >
             <div className="h-screen relative hover:translate-y-10 duration-700">
-              <ul className="absolute flex flex-col gap-5 left-[26px] bottom-60 z-20">
+              <ul className="absolute flex flex-col gap-5 left-[26px] bottom-60 z-40">
                 <Link
                   href="https://x.com/_julydsp"
                   className="hover:scale-125 duration-700 hover:rotate-[360deg]"

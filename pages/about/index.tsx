@@ -8,7 +8,7 @@ export default function About() {
 
         <h1>Page About</h1>
         </div>
-      </RootLayout>
+      </RootLayout> 
     </>
   );
 }
