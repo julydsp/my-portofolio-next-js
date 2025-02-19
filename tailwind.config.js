@@ -7,7 +7,7 @@ const config = {
   theme: {
     extend: {
       fontFamily: {
-        mons: ["var(--font-montserrat)", "sans-serif"],
+        popp: ["var(--font-poppins)", "sans-serif"],
       },
       colors: {
         dark: "#0A192F",

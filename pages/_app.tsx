@@ -3,11 +3,12 @@ import "../styles/globals.css";
 import React from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
-import { Montserrat as MontserratFont } from "@next/font/google";
+import { Poppins } from "next/font/google";
 
-const montserrat = MontserratFont({
+const poppins = Poppins({
   subsets: ["latin"],
-  variable: "--font-montserrat",
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-poppins",
 });
 
 const App = ({ Component, pageProps }: AppProps) => {
@@ -15,7 +16,7 @@ const App = ({ Component, pageProps }: AppProps) => {
   return (
     <QueryClientProvider client={queryClient}>
       <ReactQueryDevtools />
-      <div className={montserrat.variable}>
+      <div className={`${poppins.variable} font-sans`}>
         <Component {...pageProps} />
       </div>
     </QueryClientProvider>
