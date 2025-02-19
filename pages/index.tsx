@@ -196,6 +196,8 @@ const Index: NextPage = () => {
                     interval={3000}
                     transitionTime={1000}
                     stopOnHover={false}
+                    emulateTouch={false}
+                    swipeable={false}
                     className="relative w-[600px] h-[750px] md:w-[800px] md:h-[1000px] bg-center object-cover bottom-0 -right-44 md:-right-64  lg:-right-20 "
                   >
                     <div className="fade-slide">
