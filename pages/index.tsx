@@ -8,10 +8,6 @@ import { FaInstagram } from "react-icons/fa6";
 import Image from "next/image";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import profile1 from "@/public/profile-1.png";
-import profile2 from "@/public/profile-2.png";
-import profile3 from "@/public/profile-3.png";
-// import profileAboutMe from "@/public/12210977.jpg";
 import { delay, motion, useInView } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/router";
@@ -75,7 +71,7 @@ const ProfileAbouteMe = () => {
       animate={{ opacity: inView ? 1 : 0, scale: inView ? 1 : 0.2, translateX: inView ? 0 : "100px", translateY: inView ? "0" : "-100px" }}
       transition={{ delay: 0.2, duration: 1 }}
       className="relative w-[280px] h-[280px] md:max-h-[300px] md:max-w-[300px] md:top-44 lg:top-0 lg:max-w-[350px] lg:max-h-[350px] border-[#8892B0] border-2 border-dashed flex flex-col justify-center items-center rounded-full bottom-20 lg:bottom-0 duration-700">
-      <Image className="absolute bottom-[20px]  md:bottom-5 rounded-full w-[240px] h-[240px] object-cover object-top" src="/12210977.JPG" width={800} height={800} objectFit="cover" alt="profile-1" />
+      <Image className="absolute bottom-[20px]  md:bottom-5 rounded-full w-[240px] h-[240px] object-cover object-top" src={"/12210977.jpg"} width={800} height={800} objectFit="cover" alt="profile-1" />
     </motion.div>
   )
 }
@@ -204,7 +200,7 @@ const Index: NextPage = () => {
                   >
                     <div className="fade-slide">
                       <Image
-                        src={profile1}
+                        src={"/profile-1.png"}
                         alt="Profile Image 1"
                         width={800}
                         height={1000}
@@ -213,7 +209,7 @@ const Index: NextPage = () => {
                     </div>
                     <div className="fade-slide">
                       <Image
-                        src={profile2}
+                        src={"/profile-2.png"}
                         alt="Profile Image 2"
                         width={800}
                         height={1000}
@@ -222,7 +218,7 @@ const Index: NextPage = () => {
                     </div>
                     <div className="fade-slide">
                       <Image
-                        src={profile3}
+                        src={"/profile-3.png"}
                         alt="Profile Image 3"
                         width={800}
                         height={1000}

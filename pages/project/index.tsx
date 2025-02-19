@@ -1,13 +1,8 @@
 import Link from "next/link";
 import RootLayout from "../layout";
 import Image from "next/image";
-import barong from "@/public/Barong.png";
 import { useState } from "react";
-import cmsDestimate from "@/public/cms-destimate.png";
-import landingPageDestimate from "@/public/landing-page-destimate.png";
-import miniProject from "@/public/miniproject.png";
 import { FaGithub, FaIcons, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
-import { FaX } from "react-icons/fa6";
 import { motion } from "framer-motion";
 
 
@@ -27,7 +22,7 @@ export default function project() {
         "openAI"
       ],
       link: "https://dashboard-klephone-production.vercel.app/",
-      imageProject: [miniProject]
+      imageProject: ["/miniproject.png"]
     },
     {
       id: 2,
@@ -42,7 +37,7 @@ export default function project() {
         "HeadlessUi",
       ],
       link: "https://destimate-dev.netlify.app/#kontak",
-      imageProject: [landingPageDestimate]
+      imageProject: ["/landing-page-destimate.png"]
     },
     {
       id: 3,
@@ -59,7 +54,7 @@ export default function project() {
         "openAI"
       ],
       link: "https://cms-dev-destimate.netlify.app/login",
-      imageProject: [cmsDestimate]
+      imageProject: ["/cms-destimate.png"]
     },
     {
       id: 4,
@@ -74,7 +69,7 @@ export default function project() {
         "vuejs",
       ],
       link: "https://www.barongsolo.com/",
-      imageProject: [barong]
+      imageProject: ["/Barong.png"]
     }
   ]
   const [isHovered, setIsHovered] = useState<number>(0);
